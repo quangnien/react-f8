@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+</head>
+<body>
+<!-- 
+    1. React.createElement() -> React element
+    2. So sánh với document.createElement() -> DOM element
+        - Phần nhỏ nhất của DOM là node
+        - React element là thành phần nhỏ nhất khi làm việc với React
+    3. Thay đổi: id, className, style, ...
+    4. Thêm: text, HTML
+    5. Tạo: 
+        <h1 title="Hello" class="heading">Hello guys!</h1>
+    6. Tạo:
+        <ul>
+            <li>Javascript</li>
+            <li>ReactJS</li>
+        <ul>
+    
+    Homework: (https://jsfiddle.net/)
+    7. Tạo: (chữa ở bài sau)
+        <div class="post-item">
+            <h2 title="Học React tại F8">Học ReactJS</h2>
+            <p>Học ReactJS từ cơ bản tới nâng cao</p>
+        </div>
+-->
+
+<script>
+    /* Giải bài 5 : Tạo: <h1 title="Hello" class="heading">Hello guys!</h1> */
+    /* _____________________________________________________________________*/
+
+    // DOM
+    const h1DOM = document.createElement('h1')
+
+    h1DOM.title = 'Hello'
+    h1DOM.className = 'heading'
+
+    h1DOM.innerText = 'Hello guys!'
+
+    document.body.appendChild(h1DOM)
+
+    // React
+    //React.createElement(type, props, children, n) 
+    // props : properties :  là một đối tượng chứa các thuộc tính và giá trị được truyền từ component cha đến component con thông qua các thẻ tương ứng. 
+        // Các props này không thể thay đổi bởi component con.
+    const h1React = React.createElement('h1', {
+        title: 'Hello',
+        className: 'heading'
+    }, 'Hello quys!')
+
+    console.dir(h1DOM)
+    console.log(h1React)
+
+    /*_____________________________________________________________________*/
+
+    /* Giải bài 6 : Tạo: 
+        <ul>
+            <li>Javascript</li>
+            <li>ReactJS</li>
+        <ul>
+    */
+    /* _____________________________________________________________________*/
+    // DOM
+    const ulDOM = document.createElement('ul')
+    const liDOM1 = document.createElement('li')
+    const liDOM2 = document.createElement('li')
+
+    liDOM1.innerText = "Javascript"
+    liDOM2.innerText = "ReactJs"
+
+    ulDOM.appendChild(liDOM1)
+    ulDOM.appendChild(liDOM2)
+
+    document.body.appendChild(ulDOM)
+
+    //REACTJS
+    const ulReact = React.createElement(
+        'ul',
+        null, 
+        React.createElement('li', null, 'Javascript'),
+        React.createElement('li', null, 'ReactJs')
+    )
+
+    console.log(ulReact)
+
+    // DOM advance (add id, style to 'ul')
+    const ulDOM2 = document.createElement('ul')
+    ulDOM2.id = 'ul-id'
+    ulDOM2.style = 'color:red;font-size: 30px;'
+
+    // REACTJS advance (add id, style to 'ul')
+    const ulReact2 = React.createElement(
+        'ul',
+        {
+            id: 'ul-id',
+            style: 'color:red;font-size: 30px;'
+        }, 
+        React.createElement('li', {id: 'li-1'}, 'Javascript'),
+        React.createElement('li', {id: 'li-2'}, 'ReactJs')
+    )
+
+    
+    /* _____________________________________________________________________ */
+</script>
+</body>
+</html>
