@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+<!-- 
+    Props
+
+    - 4.4.1 
+    React elements
+        - Sử dụng props giống như với attribute của thẻ HTML
+        - 2 props class, for => className, htmlFor
+        - Phải tuân theo quy ước có sẵn
+
+    - 4.4.2 
+    React components
+        - Sử dụng props giống như đối số cho Function
+        - Tự do đặt tên props
+            - Đặt theo camelCase (ex: publishedAt)
+            - *Có thể bao gồm dấu gạch ngang
+            
+    - Chú ý: 
+        - Prop "key" là prop đặc biệt
+        - 4.4.3.1 Props cơ bản là đối số của Component
+                    => Props có thể là bất cứ kiểu dữ liệu gì
+                    ex(callback)
+        - 4.4.3.2 Sử dụng destructuring
+    
+-->
+
+<div id="root"></div>
+
+<script type="text/babel">
+    
+    // PostItem.js
+    function PostItem(props){ 
+
+        if(typeof props.callback === 'function')
+            props.callback(Math.random())
+
+        return (
+            <div className = "post-item">
+                <img
+                    src={props.image}
+                    alt={props.title}
+                />
+                <h2 className = "post-title">{props.title}</h2>
+                <p className = "post-desc">{props.description}</p>
+                <p className = "post-published">{props.publishedAt}</p>
+            </div>
+        )
+    }
+
+    // App.js
+    function App(){
+        return (
+            <div id="wrapper">
+                <PostItem 
+                    title = "1. C#(.NET) - Tương tác với file excel"
+                    image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTjgZPYeEML8q7yFim7-zTiZeQizPv8YYOXN2uuVbEsFDlBtFJE56-xIVnicdObd8MyBw&usqp=CAU"
+                    description = "1. Bạn có kiến thức ngôn ngữ C#"
+                    publishedAt = "1. Một ngày trước - 5 phút đọc"
+                    callback = {(random) => {
+                        console.log('random: ', random);
+                    }}
+                />
+                <PostItem 
+                    title = "2. C#(.NET) - Tương tác với file excel"
+                    image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTjgZPYeEML8q7yFim7-zTiZeQizPv8YYOXN2uuVbEsFDlBtFJE56-xIVnicdObd8MyBw&usqp=CAU"
+                    description = "2. Bạn có kiến thức ngôn ngữ C#"
+                    publishedAt = "2. Một ngày trước - 5 phút đọc"
+                />
+                <PostItem 
+                    title = "3. C#(.NET) - Tương tác với file excel"
+                    image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTjgZPYeEML8q7yFim7-zTiZeQizPv8YYOXN2uuVbEsFDlBtFJE56-xIVnicdObd8MyBw&usqp=CAU"
+                    description = "3. Bạn có kiến thức ngôn ngữ C#"
+                    publishedAt = "3. Một ngày trước - 5 phút đọc"
+                />
+            </div>
+        )
+    }
+
+    // index.js
+    ReactDOM.render(<App />, document.getElementById('root'))
+</script>
+</body>
+</html>

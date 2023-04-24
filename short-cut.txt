@@ -1,0 +1,2 @@
+- 'Ctrl' + 'D' : trỏ chuột tới vùng gần nhất, giống y cái vùng mà chúng ta đang bôi đen
+- 'Shift' + 'Alt' + 'F' : format code

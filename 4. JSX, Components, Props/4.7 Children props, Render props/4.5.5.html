@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<!-- 
+    Làm việc với JSX
+
+    // Phần I.
+
+    - 4.5.1 
+        Xử lý DOM events
+
+    - 4.5.2 
+        Component do chúng ta định nghĩa phải viết in hoa ký tự đầu
+        - Chọn component trong 1 object
+
+    - 4.5.3
+        Boolean, Null & Undefined không được render
+        -> Nó only dùng Kết hợp toán tử logic để render theo điều kiện
+
+    // Phần II.
+    - Props trong JSX
+
+        - 4.5.4
+            - <YourComponent 
+                propName1="String literals"
+                propName2={expression} 
+                    - nhưng không truyền if/else/switch-case vô được {expression}
+            />
+
+        - 4.5.5
+            - Props default to "true"
+
+        - 4.5.6
+            - Spread/Rest props
+        - Children prop
+            - <YourComponent>String literals</YourComponent>
+            - <YourComponent>{expression}</YourComponent>
+        - Render props
+ -->
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function Button ({ title, primary }){
+            console.log(primary)
+
+            return <button>{title}</button>
+        }
+
+        function App() {
+            const title = "title"
+            const isPrimary = false
+            return (
+                <div id="wrapper">
+                    <Button title={title} primary={isPrimary}/>
+                    
+                    <Button title={title} primary/>
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App title="Title"/>, document.getElementById('root'))
+
+    </script>
+<!-- 
+    Giá trị của các event property là 1 callback
+
+    - callback là một hàm được truyền vào như một đối số của một hàm khác 
+    và được dùng để thực thi sau đó.
+
+    - Callback thường được sử dụng trong lập trình dựa trên sự kiện, 
+    chẳng hạn như trong phát triển web và tương tác giao diện người dùng, 
+    khi một hàm được thực thi khi một sự kiện cụ thể xảy ra, 
+    chẳng hạn như khi người dùng nhấp vào nút hoặc gửi một biểu mẫu.
+    
+    - Bằng cách truyền một hàm dưới dạng callback cho một trình lắng nghe sự kiện, 
+    chúng ta có thể chỉ định điều gì sẽ xảy ra khi sự kiện xảy ra, 
+    chẳng hạn như cập nhật giao diện người dùng hoặc gửi một yêu cầu đến một máy chủ. 
+-->
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+
+    <!-- The quickest way to try JSX in your project is to add this <script> tag to your page: -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+<!-- 
+    JSX -> Javascript XML  
+        - Đặc trưng của XML đặc trưng ở cú pháp thẻ mở và thẻ đóng
+        - JSX là một kiểu mở rộng của XML (viết trong JS)
+    
+    1. Luôn dùng React.createElement()? Vấn đề?
+        - Để dùng 'ReactDOM.render(...) đối số đầu tiên luôn là 1 React.createElement
+        - Rất khó để làm ra website có nhiều element
+        - Vậy nên dùng JSX
+        - Tuy nhiên JSX sẽ không thể nào truyền thẳng cho ReactDOM được 
+          vì ReactDOM cần nhận React.createElement
+        - Vậy thì phải cần 1 bước trung gian (3.)
+
+    2. JSX? Live demo: https://bit.ly/2VOIMN7
+        
+    3. JSX không phải là HTML,
+        - Cần có Javascript, Babel để dùng JSX
+            - Babel là 1 lib của Js - chuyên dùng để phân tích cú pháp và chuyển đổi cú pháp
+            - Dùng (2.) để test (trực quan với testBabel.png)
+            - Hiểu: trong tương lai sẽ code cú pháp dễ hiểu ở vế trái ảnh,
+              tự khắc Babel sẽ chuyển đổi thành cú pháp React.createEmelent()
+        - Khi làm JSX mà muốn xen lẫn code Javascript vào thì có 1 cách thôi đó là sử dụng '{}'
+            - vd vế trái: 
+                const reactCouse = 'React-F8'
+                const ul = <ul className = "course-list">
+                                <li style={{ color: 'red'}}>Javascript</li>
+                                <li>{reactCouse}</li>
+                            </ul>
+
+    4. JSX và React-DOM?
+    
+     ________________________________________ STEP TO WORK _________________________________________
+    | Reading more at https://legacy.reactjs.org/docs/add-react-to-a-website.html                   |
+    | - step1: add lib : <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>  |
+    | - step2: <script type="text/babel">                                                           |
+    |_______________________________________________________________________________________________|
+-->
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+    const reactCouse = 'React-F8'
+
+    const ul = <ul className = "course-list">
+                    <li style={{ color: 'red'}}>Javascript</li>
+                    <li>{reactCouse}</li>
+                </ul>
+
+    ReactDOM.render(ul, document.getElementById('root'))
+
+    // F12 để thấy <script type="text/babel"> -> <script>, cú pháp cũng z
+</script>
+</body>
+</html>
