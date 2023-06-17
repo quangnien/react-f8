@@ -1,0 +1,2 @@
+- memo: dùng để tránh component không bị re-render trong TH ko cần thiết
+- useMemo: tránh thực hiện lại 1 logic nào đó không cần thiết 

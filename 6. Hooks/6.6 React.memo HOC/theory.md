@@ -1,0 +1,3 @@
+##### Nguyên lý hoạt động của memo: nhận vào 1 component sau đó check các props của component này sau mỗi lần render có bị thay đổi không. Nếu có ít nhất 1 props bị thay đổi giá trị thì sẽ re-render lại component đó còn nếu không có props nào thay đổi thì sẽ không re-render lại component.
+
+##### Trường hợp re-render lại component đơn giản, ko ảnh hưởng nhiều đến perfomance thì khỏi dùng cũng được. Tức là tùy, linh hoạt dùng, chứ không phải trường hợp nào cũng dùng
